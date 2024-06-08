@@ -1,0 +1,42 @@
+.form-card {
+  background-color: rgb(23, 23, 23);
+  border-radius: 6px;
+  width: 100%;
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+  padding: 20px;
+  margin-right: 20;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+h3 {
+  padding-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form input, textarea, button {
+  width: 100%;
+  min-height: 30px;
+}
+
+.form input, textarea {
+  padding: 5px;
+}
+
+.form button {
+  background-color: purple;
+  color: white;
+  border: none;
+  height: 30px;
+  cursor: pointer;
+}
+

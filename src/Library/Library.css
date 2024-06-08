@@ -1,0 +1,31 @@
+.songs-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .songs-container {
+    flex-direction: column;
+  }
+
+  .song-form {
+   padding-bottom: 30px;
+  }  
+}
+
+.song-player-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.song-listing {
+  flex-basis: 50%;
+}
+
+.song-form {
+  flex-basis: 30%;
+}
+
+
