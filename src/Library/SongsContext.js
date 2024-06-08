@@ -33,7 +33,7 @@ export const SongsProvider = ({ children }) => {
     const initializeSongs = async () => {
         let loadedSongs = await getAllSongs();
         if (loadedSongs.length === 0) {
-          const initialSongs = SONGS.sort((a, b) => a.age - b.age);
+          const initialSongs = SONGS.sort((a, b) => b.createdAt - a.createdAt);
           for (const song of initialSongs) {
             await addSongToDB(song);
           }
