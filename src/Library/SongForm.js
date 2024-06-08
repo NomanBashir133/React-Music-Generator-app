@@ -25,14 +25,14 @@ const SongForm = () => {
 
   return (
     <div className={styles.form_card}>
-      <h3 className={styles.text_align_center}>{editingSong ? 'Edit Song' : 'Create a Song'}</h3>
+      <h3 className={styles.text_align_center} data-testid='form-heading'>{editingSong ? 'Edit Song' : 'Create a Song'}</h3>
 
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} required />
+        <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} required data-testid='song-name-input'/>
         <br /><br />
-        <textarea value={prompt} rows='5' placeholder='Prompt' onChange={(e) => setPrompt(e.target.value)} required />
+        <textarea value={prompt} rows='5' placeholder='Prompt' onChange={(e) => setPrompt(e.target.value)} required data-testid='song-prompt-input' />
         <br /><br />
-        <button type="submit">Save</button>
+        <button type="submit" data-testid='save-btn'>Save</button>
       </form>
 
     </div>

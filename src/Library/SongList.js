@@ -22,12 +22,12 @@ const SongList = () => {
               </div>
 
               <div className={styles.right_content}>
-                <button className={`${styles.btn} ${styles.btn_icon}`} onClick={() => deleteSong(song.createdAt)}>
-                  <img src={editIcon} alt='edit' width="20" height="20" />
+                <button className={`${styles.btn} ${styles.btn_icon}`} onClick={() => deleteSong(song.createdAt)} data-testid='delete-btn'>
+                  <img src={trashIcon} alt='delete' width="20" height="20" />
                 </button>
 
-                <button className={`${styles.btn} ${styles.btn_icon}`} onClick={() => setEditing(song)}>
-                  <img src={trashIcon} alt='delete' width="20" height="20" />
+                <button className={`${styles.btn} ${styles.btn_icon}`} onClick={() => setEditing(song)} data-testid='edit-btn'>
+                  <img src={editIcon} alt='edit' width="20" height="20" />
                 </button>
               </div>
             </div>
