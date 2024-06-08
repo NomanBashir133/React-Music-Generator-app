@@ -3,17 +3,17 @@ import SongList from './SongList';
 import SongForm from './SongForm';
 import SongPlayer from './SongPlayer'
 import { SongsProvider } from './SongsContext';
-import './Library.css';
+import styles from './Library.module.css';
 
 const Library = () => {
   return (
     <SongsProvider>
-      <div className='songs-container'>
-        <div className='song-listing'><SongList></SongList></div>
-        <div className='song-form'><SongForm></SongForm></div>
+      <div className={styles.songs_container}>
+        <div className={styles.song_listing}><SongList></SongList></div>
+        <div className={styles.song_form}><SongForm></SongForm></div>
       </div>
 
-      <div className='song-player-container'>
+      <div className={styles.song_player_container}>
         <SongPlayer></SongPlayer>
       </div>
     </SongsProvider>

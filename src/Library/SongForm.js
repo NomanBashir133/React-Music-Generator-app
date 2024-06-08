@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { SongsContext } from './SongsContext';
-import './SongForm.css';
+import styles from './SongForm.module.css';
 
 const SongForm = () => {
   const { addSong, editSong, editingSong } = useContext(SongsContext);
@@ -24,10 +24,10 @@ const SongForm = () => {
   };
 
   return (
-    <div className='form-card'>
-      <h3 className='text-align-center'>{editingSong ? 'Edit Song' : 'Create a Song'}</h3>
+    <div className={styles.form_card}>
+      <h3 className={styles.text_align_center}>{editingSong ? 'Edit Song' : 'Create a Song'}</h3>
 
-      <form className='form' onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} required />
         <br /><br />
         <textarea value={prompt} rows='5' placeholder='Prompt' onChange={(e) => setPrompt(e.target.value)} required />

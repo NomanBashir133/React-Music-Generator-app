@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './NavBar.css';
+import styles from './NavBar.module.css';
 
 const NavBar = ({ routes }) => {
   const location = useLocation();
@@ -12,11 +12,11 @@ const NavBar = ({ routes }) => {
 
   return (
     <div>
-      <div className="tabs">
+      <div className={styles.tabs}>
         {routes.map((route) => (
           <div
             key={route.path}
-            className={`tab ${location.pathname === route.path ? 'active' : ''}`}
+            className={`${styles.tab} ${location.pathname === route.path ? styles.active : ''}`}
             onClick={() => handleRouteClick(route.path)}
           >
             {route.label}
@@ -27,7 +27,6 @@ const NavBar = ({ routes }) => {
         {routes.map((route) => (
           <div key={route.path} style={{ display: location.pathname === route.path ? 'block' : 'none' }}>
             <route.component />
-
           </div>
         ))}
       </>

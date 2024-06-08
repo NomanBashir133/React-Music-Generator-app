@@ -1,10 +1,10 @@
 import React from 'react';
-import './SongPlayer.css'
+import styles from './SongPlayer.module.css'
 import playIcon from './../assets/play-circle.svg';
 
 const SongPlayer = () => {
   return (
-    <div className='song-player'>
+  <div className={styles.song_player}>
       <img src={playIcon} alt='Play Song' width="35" height="35" />
     </div>
   )

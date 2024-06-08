@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from './layout/Header';
 import NavBar from './layout/NavBar';
 import Library from './Library/Library';
-import './App.css';
 
 const routes = [
   { path: '/songs', component: Library, label: 'Songs' },
