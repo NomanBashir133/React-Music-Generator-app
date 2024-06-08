@@ -1,0 +1,7 @@
+.song-player {
+  background-color: rgb(146, 146, 146);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import { Fragment } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from './layout/Header';
+import NavBar from './layout/NavBar';
+import Library from './Library/Library';
 import './App.css';
+
+const routes = [
+  { path: '/songs', component: Library, label: 'Library' },
+  { path: '/playlists', component: () => (<div>Playlists placeholder</div>), label: 'Playlist' },
+  { path: '/followers', component: () => (<div>Followers placeholder</div>), label: 'Followers' },
+];
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header title='Library'></Header>
+
+      <BrowserRouter>
+        <NavBar routes={routes}></NavBar>
+        <Routes>
+          {routes.map((route) => (
+            <Route key={route.path} path={route.path} component={route.component} />
+          ))}
+        </Routes>
+      </BrowserRouter>
+    </Fragment>
   );
 }
 

@@ -1,0 +1,72 @@
+.song-list-container {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  height: 72vh;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+
+.item:hover {
+  background-color: rgb(23, 23, 23);
+}
+
+.item:hover > .right-content {
+  visibility: initial;
+  cursor: pointer;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  flex-basis: 60%;
+  padding: 0 10px 0 0;
+}
+
+.cover-color {
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+}
+
+.title {
+  font-style: bold;
+  font-size: 18px;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: lightgray;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.right-content {
+  visibility: hidden;
+  display: flex;
+  flex-basis: 60%;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.btn-icon { 
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 20px;
+  width: fit-content;
+}
+
+.btn-icon img { 
+  background-color: none;
+}
