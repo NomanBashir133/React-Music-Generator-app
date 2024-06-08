@@ -7,7 +7,7 @@ import './App.css';
 
 const routes = [
   { path: '/songs', component: Library, label: 'Songs' },
-  { path: '/playlists', component: () => (<div>Playlists placeholder</div>), label: 'Playlist' },
+  { path: '/playlists', component: () => (<div>Playlists placeholder</div>), label: 'Playlists' },
   { path: '/followers', component: () => (<div>Followers placeholder</div>), label: 'Followers' },
 ];
 
