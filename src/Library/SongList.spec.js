@@ -1,34 +1,31 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import React, { act } from 'react';
+import { render, screen, fireEvent, getByTestId } from '@testing-library/react';
 import SongList from './SongList';
 import { SongsContext } from './SongsContext';
+import { SONGS } from './songs.conts';
 
 const mockDeleteSong = jest.fn();
 const mockSetEditing = jest.fn();
 
-const mockSongs = [
-  {
-    name: "Midnight Echoes",
-    prompt: "Reflections under the starlight",
-    color: "red",
-    createdAt: "2024-05-06T17:00:00-07:00"
-  },
-  {
-    name: "Whispering Pines",
-    prompt: "Mystic trees in twilight's glow",
-    color: "green",
-    createdAt: "2024-05-06T17:00:00-05:00"
-  },
-];
+const mockSongs = [...SONGS];
 
-describe('SongList', () => {
-  it('renders songs by createdAt in descending order', async () => {
-    await render(
+const renderWithProvider = async (component) => {
+  await act(async () => {
+    render(
       <SongsContext.Provider value={{ songs: mockSongs, deleteSong: mockDeleteSong, setEditing: mockSetEditing }}>
-        <SongList />
+        { component }
       </SongsContext.Provider>
     );
+  });
+};
+
+describe('SongList', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('renders songs by createdAt in descending order', async () => {
+    await renderWithProvider(<SongList />)
 
     const songTitles = screen.getAllByText(/Midnight Echoes|Whispering Pines/);
     expect(songTitles.length).toBe(2);
@@ -38,26 +35,24 @@ describe('SongList', () => {
   });
 
   it('calls deleteSong when delete button is clicked', async () => {
-    await render(
-      <SongsContext.Provider value={{ songs: mockSongs, deleteSong: mockDeleteSong, setEditing: mockSetEditing }}>
-        <SongList />
-      </SongsContext.Provider>
-    );
+    await renderWithProvider(<SongList />)
 
     const deleteButtons = screen.getAllByTestId('delete-btn');
-    fireEvent.click(deleteButtons[0]);
+    await act(async () => {
+      fireEvent.click(deleteButtons[0]);
+    });
+
     expect(mockDeleteSong).toHaveBeenCalledWith(mockSongs[0].createdAt);
   });
 
  it('calls setEditing when edit button is clicked', async () => {
-    await render(
-      <SongsContext.Provider value={{ songs: mockSongs, deleteSong: mockDeleteSong, setEditing: mockSetEditing }}>
-        <SongList />
-      </SongsContext.Provider>
-    );
+    await renderWithProvider(<SongList />)
 
     const editButtons = screen.getAllByTestId('edit-btn');
-    fireEvent.click(editButtons[0]);
+    await act(async () => {
+      fireEvent.click(editButtons[0]);
+    });
+    
     expect(mockSetEditing).toHaveBeenCalledWith(mockSongs[0]);
   });
 });

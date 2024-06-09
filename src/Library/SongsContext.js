@@ -32,7 +32,7 @@ export const SongsProvider = ({ children }) => {
   useEffect(() => {
     const initializeSongs = async () => {
         let loadedSongs = await getAllSongs();
-        if (loadedSongs.length === 0) {
+        if (loadedSongs?.length === 0) {
           const initialSongs = SONGS.sort((a, b) => b.createdAt - a.createdAt);
           for (const song of initialSongs) {
             await addSongToDB(song);
